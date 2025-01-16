@@ -1,7 +1,7 @@
 import os
-os.chdir("/home/thanos/OneDrive/mybackupOneDrive/PhD/3Dif/")
+os.chdir("/home/thanos/OneDrive/mybackupOneDrive/PhD/3Dif_styl/")
 import util
-os.chdir("/home/thanos/OneDrive/mybackupOneDrive/PhD/3dif_objaverse-xl-subset/Minecraft Grass Block/")
+# os.chdir("/home/thanos/OneDrive/mybackupOneDrive/PhD/3dif_objaverse-xl-subset/Minecraft Grass Block/")
 
 
 import numpy as np
@@ -191,12 +191,12 @@ def img_spot():
 
     # crop_slice = np.s_[5:5+220, 25:25+220, :3] # to save the images
 
-    pos, nrm, uv, tri_pos, tri_nrm, tri_uv = load_obj("untitled.obj")   
+    pos, nrm, uv, tri_pos, tri_nrm, tri_uv = load_obj("Minecraft Grass Block/untitled.obj")   
     pos = np.concatenate([pos, np.ones_like(pos[:, :1])], axis=1)
     nrm = np.concatenate([nrm, np.zeros_like(nrm[:, :1])], axis=1)
  
     
-    tex = imageio.v2.imread("default.png")[::-1].astype(np.float32) / 255.0
+    tex = imageio.v2.imread("Minecraft Grass Block/default.png")[::-1].astype(np.float32) / 255.0
     tex = torch.as_tensor(tex, dtype=torch.float32, device='cuda')
 
     pos     = torch.as_tensor(pos,     dtype=torch.float32, device='cuda')
